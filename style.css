@@ -1,0 +1,92 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+.gl{
+    background-color: gold; /* Adjust transparency */
+    z-index: 1;
+}
+.sl{
+    background-color: silver; /* Adjust transparency */
+    z-index: 1;
+}
+.card {
+    border: 0px;
+    background: none; /* Remove the default background color of the card */
+}
+.card-body {
+    background-color: rgba(255, 255, 255, 0.5); /* Add transparency to the card body */
+    z-index: 1; /* Ensure cards are above the video */
+}
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Ensure video stays behind everything */
+}
+.navbar {
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust transparency */
+    z-index: 1; /* Ensure navbar is above the video */
+    
+}
+.navbar-nav .nav-item .nav-link {
+    color: white !important;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 10px 20px; /* Increase padding for more spacious look */
+    margin: 0 10px; /* Add margin for extra space between links */
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ffd700 !important; /* Change text color on hover */
+    background-color: rgba(51, 51, 51, 0.7) !important; /* Change background color on hover */
+}
+.navbar-brand {
+    font-weight: bold;
+    margin-right: 20px; /* Move logo slightly to the left */
+}
+.navbar-text {
+    font-size: 1.25rem; /* Slightly larger font for the company name */
+    font-weight: bold;
+    margin-left: 20px; /* Move company name slightly to the right */
+    color: #f56a79; /* Add a distinctive color to the company name */
+    font-family: 'Courier New', Courier, monospace; /* Different font style for the company name */
+}
+.nav-item {
+    margin-left: 15px;
+}
+@media (max-width: 768px) {
+    .navbar-collapse {
+        text-align: center;
+    }
+}
+.content {
+    height: 200vh; /* Ensure there's enough content to scroll */
+    z-index: 0;
+}
+.carousel-item img {
+    height: 50vh; /* 50% of the viewport height */
+    object-fit: cover; /* Ensures the images fit within the container without distorting */
+}
+#upBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position at the bottom-right corner */
+    bottom: 30px; /* Distance from the bottom */
+    right: 30px; /* Distance from the right */
+    z-index: 99; /* Ensure it stays above other content */
+    border: none; /* Remove border */
+    outline: none; /* Remove outline */
+    background-color: skyblue; /* Semi-transparent dark background */
+    color: white; /* White arrow color */
+    cursor: pointer; /* Mouse pointer on hover */
+    padding: px; /* Padding inside the button */
+    border-radius: 50%; /* Make it a circular button */
+    font-size: 24px; /* Size of the arrow */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+#upBtn:hover {
+    background-color: gold; /* Change background color on hover */
+    color: white; /* Change arrow color on hover */
+}

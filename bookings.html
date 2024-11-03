@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking</title>
+    <link rel="icon" href="LOGO-removebg-preview (1).png" type="image/x-icon" />
+    <link rel="shortcut icon" href="LOGO-removebg-preview (1).png" type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="book.js">
+</head>
+<body>
+    <video autoplay muted loop class="video-background">
+        <source src="/2611250-uhd_3840_2160_30fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <img src="name-removebg-preview.png" style="width: 6%;margin-left: 15px;" alt="">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse order-lg-1" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:5500/index.html"><h4>Home</h4></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:5500/bookings.html"><h4>Bookings</h4></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:5500/contact.html"><h4>Contact</h4></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:5500/F&Q.html"><h4>FAQ</h4></a>
+                    </li>
+                </ul>
+            </div>
+            <a class="navbar-brand order-lg-2" href="#">
+                <img src="LOGO-removebg-preview (1).png" alt="Logo" style="height: 40px;border-radius: 50px;">
+            </a>
+        </div>
+    </nav>
+    
+    <center><br><br><br><br><br>
+      <h1><span style="font-size: 60px;color: goldenrod;text-shadow: 0 0 15px silver;">KODAIKANAL - PRINCESS OF HILLS</span></h1>
+    </center><br>
+
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" style="margin-left: 10%; width: 80%; margin-top: 5px;">
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+              <div class="row">
+                  <div class="col-md-4">
+                      <img src="https://kodaikingtravels.com/wp-content/uploads/2023/09/kodaikanal-village-tour2.jpg" class="img-fluid" alt="Image 1">
+                  </div>
+                  <div class="col-md-4">
+                      <img src="https://kodaikingtravels.com/wp-content/uploads/2023/09/kodaikanal-honeymoon-package-3days2.jpg" class="img-fluid" alt="Image 2">
+                  </div>
+                  <div class="col-md-4">
+                      <img src="https://kodaikingtravels.com/wp-content/uploads/2023/09/kodaikanal-fullday-local-sightseeing-tour4.jpg" class="img-fluid" alt="Image 3">
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <div class="row">
+                  <div class="col-md-4">
+                      <img src="https://kodaikingtravels.com/wp-content/uploads/2023/09/kodaikanal-fullday-local-sightseeing-tour3.jpg" class="img-fluid" alt="Image 4">
+                  </div>
+                  <div class="col-md-4">
+                      <img src="https://kodaikingtravels.com/wp-content/uploads/2023/09/kodaikanal-fullday-local-sightseeing-tour2.jpg" class="img-fluid" alt="Image 5">
+                  </div>
+                  <div class="col-md-4">
+                      <img src="https://kodaikingtravels.com/wp-content/uploads/2023/09/kodaikanal-village-tour5.jpg" class="img-fluid" alt="Image 6">
+                  </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <div class="row">
+                  <div class="col-md-4">
+                      <img src="https://kodaikingtravels.com/wp-content/uploads/2023/09/kodaikanal-village-tour5.jpg" class="img-fluid" alt="Image 7">
+                  </div>
+                  <div class="col-md-4">
+                      <img src="https://kodaikingtravels.com/wp-content/uploads/2023/09/kodaikanal-picnic-tour1.jpg" class="img-fluid" alt="Image 8">
+                  </div>
+                  <div class="col-md-4">
+                      <img src="https://kodaikingtravels.com/wp-content/uploads/2023/09/kodaikanal-picnic-tour5.jpg" class="img-fluid" alt="Image 9">
+                  </div>
+              </div>
+          </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div><br><br><br>
+
+  <div class="container mt-3">
+      <div class="row">
+        <div class="col-sm-6 p-3">
+          <img class="img-fluid" style="height: 300px" src="hills.jpg" alt=""/>
+        </div>
+        <div class="col-sm-6 p-3 ">
+          <b style="font-size: 20px; text-align: justify ;color: white; text-shadow: 2px 2px 4px goldenrod;"><p></p><br>
+            Kodaikanal, often called the “Princess of Hill Stations,” is a
+            serene hill station in Tamil Nadu, India, established in 1845.
+            Nestled at an altitude of around 7,000 feet in the Palani Hills, it
+            offers a cool climate and picturesque landscapes. Key attractions
+            include the man-made Kodaikanal Lake, Coaker’s Walk, and the Kurinji
+            Andavar Temple2. It’s a popular destination for nature lovers and
+            honeymooners alike.</b>
+        </div>
+      </div>
+    </div>
+    <br><br><br>  
+
+    <div class="container mt-3">
+      <center>
+      <h1><span style="font-size: 60px;color: goldenrod;text-shadow: 0 0 15px silver;">Galaxy Travels- Tour Package</span></h1>
+      </center>
+      <div class="row">
+        <div class="col-sm-6 p-3">
+          <center>
+            <div class="container mt-3" >
+              <div class="card" style="width: 400px; border: 0px;">
+                <img
+                  class="card-img-top"
+                  src="https://kodaikingtravels.com/wp-content/uploads/2023/09/local-tours.jpg"
+                  alt="Card image"
+                  style="width: 100%"
+                />
+                <div class="card-body">
+                  <h4 class="card-title">Kodaikanal - Local Tour Package</h4>
+                  <a href="http://127.0.0.1:5500/localtour.html" target="_blank" class="btn btn-primary">Bookings</a>
+                </div>
+              </div>
+            </div>
+          </center>
+        </div>
+        <div class="col-sm-6 p-3">
+          <center>
+            <div class="container mt-3">
+              <div class="card" style="width: 400px; border: 0px;">
+                <img
+                  class="card-img-top"
+                  src="https://kodaikingtravels.com/wp-content/uploads/2023/09/Forest-tour.jpg"
+                  alt="Card image"
+                  style="width: 100%"
+                />
+                <div class="card-body">
+                  <h4 class="card-title">Kodaikanal - Forest Tour Package</h4>
+                  <a href="http://127.0.0.1:5500/foresttour.html" target="_blank" class="btn btn-primary">Bookings</a>
+                </div>
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-sm-6 p-3">
+          <center>
+            <div class="container mt-3">
+              <div class="card" style="width: 400px; border: 0px;">
+                <img
+                  class="card-img-top"
+                  src="https://kodaikingtravels.com/wp-content/uploads/2023/09/nightride-tour.jpg"
+                  alt="Card image"
+                  style="width: 100%"
+                />
+                <div class="card-body">
+                  <h4 class="card-title">
+                    Kodaikanal - Night Ride Package
+                  </h4>
+                  <a href="http://127.0.0.1:5500/nighttour.html" target="_blank" class="btn btn-primary">Bookings</a>
+                </div>
+              </div>
+            </div>
+          </center>
+        </div>
+        <div class="col-sm-6 p-3">
+          <center>
+            <div class="container mt-3">
+              <div class="card" style="width: 400px; border: 0px;">
+                <img
+                  class="card-img-top"
+                  src="https://kodaikingtravels.com/wp-content/uploads/2023/09/village-tour.jpg"
+                  alt="Card image"
+                  style="width: 100%"
+                />
+                <div class="card-body" style="z-index: 1;">
+                  <h4 class="card-title">Kodaikanal - Village Tour Package</h4>
+                  <a href="http://127.0.0.1:5500/villagetour.html" target="_blank" class="btn btn-primary">Bookings</a>
+                </div>
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-sm-6 p-3">
+          <center>
+            <div class="container mt-3">
+              <div class="card" style="width: 400px; border: 0px;">
+                <img
+                  class="card-img-top"
+                  src="https://kodaikingtravels.com/wp-content/uploads/2023/09/park-tour.jpg"
+                  alt="Card image"
+                  style="width: 100%"
+                />
+                <div class="card-body">
+                  <h4 class="card-title">Kodaikanal - Park Tour Package</h4>
+                  <a href="http://127.0.0.1:5500/parktour.html" target="_blank" class="btn btn-primary">Bookings</a>
+                </div>
+              </div>
+            </div>
+          </center>
+        </div>
+        <div class="col-sm-6 p-3">
+          <center>
+            <div class="container mt-3">
+              <div class="card" style="width: 400px">
+                <img
+                  class="card-img-top"
+                  src="https://kodaikingtravels.com/wp-content/uploads/2023/09/picnic-tour.jpg"
+                  alt="Card image"
+                  style="width: 100%"
+                />
+                <div class="card-body">
+                  <h4 class="card-title">Kodaikanal - Picnic Tour Package</h4>
+                  <a href="http://127.0.0.1:5500/Picnictour.html" target="_blank" class="btn btn-primary">Bookings</a>
+                </div>
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+    </div>
+
+    <br><br>
+      <div class="container mt-3" style="background-color: rgba(237, 220, 70, 0.5);border-radius: 15px; z-index: 1; padding: 15px;">
+      <b style=" color: silver;text-shadow: 0 0 3px black;font-size: xx-large;">TERMS & CONDITIONS</b>
+      <p action="" style=" color: goldenrod;text-shadow: 0 0 3px black;text-align: justify; font-size: x-large;">
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> Per person rates (in Rs) - applicable on three persons staying together sharing the same room.<br>
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> Service tax extra as applicable.<br>
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> The package can not be combined with any other offer. <br>
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> If you cancel at least 15 days before the scheduled arrival, you will receive a 90% refund.<br>
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> If you cancel at least 8-14 days before the scheduled arrival, you will receive a 50% refund.<br>
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> If you cancel at least 7 days or less before the scheduled arrival, no refund.</p>
+    <b style=" color: silver;text-shadow: 0 0 3px black;font-size: xx-large;">Package Exclusion</b>
+      <p action="" style=" color: goldenrod;text-shadow: 0 0 3px black;text-align: justify; font-size: x-large;">
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> All sightseeing place entrance fees, Shopping, Lunch and dinner(if hotel is booked)</p>
+      <b style=" color: silver;text-shadow: 0 0 3px black;font-size: xx-large;">Package Inclusion</b>
+      <p action="" style=" color: goldenrod;text-shadow: 0 0 3px black; font-size: x-large;">
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> Cab with guide, Responsible for the luggage while sightseeing, Morning breakfast complimentary (if hotel is booked)
+           </p>
+      </div>
+    <br><br>
+
+    <button onclick="topFunction()" id="upBtn" title="Go to top">
+      <i class="fas fa-arrow-up"></i>
+  </button>
+    <br><br><br>
+
+    <div class="container-fluid navbar" >
+      <nav class="navbar container navbar-expand-sm">
+        <div class="container-fluid">
+          <b style=" font-size: larger; color: white;">Download App</b>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" style="padding-left: 15px;" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a href="https://apps.apple.com/in/app/paytm-secure-upi-payments/id473941634" target="_blank"><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/footer/images/downloadApple.svg" alt=""></a>
+              </li>
+              <li class="nav-item" style="padding-left: 15px;">
+                <a style="text-decoration: none;" href="https://play.google.com/store/apps/details?id=net.one97.paytm&pli=1" target="_blank"><img  src="https://pwebassets.paytm.com/commonwebassets/paytmweb/footer/images/downloadGoogle.svg" alt=""> </a>
+              </li>
+            </ul>
+            
+          <a style="color: white; padding: 15px;" href="https://x.com/paytm" target="_blank"><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/footer/images/twitter.svg" alt=""></a>
+          <a style="color: white; padding: 15px;" href="https://www.instagram.com/paytm/" target="_blank"><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/footer/images/instagram.svg" alt=""></a>
+          <a style="color: white; padding: 15px;padding-right: 25px;" href="https://www.facebook.com/Paytm/" target="_blank"><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/footer/images/facebook.svg" alt=""></a> 
+          </div>
+        </div>
+      </nav>
+    </div>
+
+      <div style="width: 100%; height: 15px;" class="sl"> </div>
+      <div style="width: 100%; height: 15px;" class="gl"> </div>
+
+</body>
+<script>
+  var mybutton = document.getElementById("upBtn");
+  window.onscroll = function() {scrollFunction()};
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  function topFunction() {
+    document.body.scrollTop = 0; 
+    document.documentElement.scrollTop = 0; 
+  }
+  </script>
+</html>

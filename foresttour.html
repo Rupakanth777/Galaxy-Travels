@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forest Tour</title>
+    <link rel="icon" href="LOGO-removebg-preview (1).png" type="image/x-icon" />
+    <link rel="shortcut icon" href="LOGO-removebg-preview (1).png" type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+  <style>
+    body, html {
+    height: 100%;
+    margin: 0;
+      }
+      .gl{
+          background-color: gold; /* Adjust transparency */
+          z-index: 1;
+      }
+      .sl{
+          background-color: silver; /* Adjust transparency */
+          z-index: 1;
+      }
+      .card {
+          border: 0px;
+          background: none; /* Remove the default background color of the card */
+      }
+      .card-body {
+          background-color: rgba(255, 255, 255, 0.5); /* Add transparency to the card body */
+          z-index: 1; /* Ensure cards are above the video */
+      }
+      .video-background {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: -1; /* Ensure video stays behind everything */
+      }
+      .navbar {
+          background-color: rgba(0, 0, 0, 0.5); /* Adjust transparency */
+          z-index: 1; /* Ensure navbar is above the video */
+          
+      }
+      .navbar-nav .nav-item .nav-link {
+          color: white !important;
+          transition: color 0.3s ease, background-color 0.3s ease;
+          padding: 10px 20px; /* Increase padding for more spacious look */
+          margin: 0 10px; /* Add margin for extra space between links */
+      }
+      .navbar-nav .nav-item .nav-link:hover {
+          color: #ffd700 !important; /* Change text color on hover */
+          background-color: rgba(51, 51, 51, 0.7) !important; /* Change background color on hover */
+      }
+      .navbar-brand {
+          font-weight: bold;
+          margin-right: 20px; /* Move logo slightly to the left */
+      }
+      .navbar-text {
+          font-size: 1.25rem; /* Slightly larger font for the company name */
+          font-weight: bold;
+          margin-left: 20px; /* Move company name slightly to the right */
+          color: #f56a79; /* Add a distinctive color to the company name */
+          font-family: 'Courier New', Courier, monospace; /* Different font style for the company name */
+      }
+      .nav-item {
+          margin-left: 15px;
+      }
+      @media (max-width: 768px) {
+          .navbar-collapse {
+              text-align: center;
+          }
+      }
+      .content {
+          height: 200vh; /* Ensure there's enough content to scroll */
+          z-index: 0;
+      }
+      .carousel-item img {
+          height: 50vh; /* 50% of the viewport height */
+          object-fit: cover; /* Ensures the images fit within the container without distorting */
+      }
+      .checkbox-label {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 16px;
+        }
+        .containeSr {
+          display: none; /* Hide the container by default */
+          background-color: #f0f0f0;
+          padding: 20px;
+          margin-top: 10px;
+          border: 1px solid #ccc;
+        }
+        #upBtn {
+          display: none; /* Hidden by default */
+          position: fixed; /* Fixed position at the bottom-right corner */
+          bottom: 30px; /* Distance from the bottom */
+          right: 30px; /* Distance from the right */
+          z-index: 99; /* Ensure it stays above other content */
+          border: none; /* Remove border */
+          outline: none; /* Remove outline */
+          background-color: silver; /* Semi-transparent dark background */
+          color: gold; /* White arrow color */
+          cursor: pointer; /* Mouse pointer on hover */
+          padding: px; /* Padding inside the button */
+          border-radius: 50%; /* Make it a circular button */
+          font-size: 24px; /* Size of the arrow */
+          transition: background-color 0.3s ease; /* Smooth transition on hover */
+        } 
+        #upBtn:hover {
+          background-color: gold; /* Change background color on hover */
+          color: white; /* Change arrow color on hover */
+        }
+  </style>
+  <body>
+    <video autoplay muted loop class="video-background">
+        <source src="/2611250-uhd_3840_2160_30fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <img src="name-removebg-preview.png" style="width: 6%;margin-left: 15px;" alt="">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse order-lg-1" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="http://127.0.0.1:5500/index.html"><h4>Home</h4></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="http://127.0.0.1:5500/bookings.html"><h4>Bookings</h4></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="http://127.0.0.1:5500/contact.html"><h4>Contact</h4></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="http://127.0.0.1:5500/F&Q.html"><h4>FAQ</h4></a>
+                    </li>
+                </ul>
+            </div>
+            <a class="navbar-brand order-lg-2" href="#">
+                <img src="LOGO-removebg-preview (1).png" alt="Logo" style="height: 40px;border-radius: 50px;">
+            </a>
+        </div>
+    </nav><h1></h1>
+
+    <br><br><br><br>
+
+    <div class="container card-body" style="text-align: justify;border-radius: 5px;">
+      <br>
+      <h1 class="container " style="text-shadow: 1px 1px 2px gold, 0 0 25px gold, 0 0 5px goldenrod;color: black;"><b>KODAIKANAL FULL DAY - FOREST TOUR PACKAGE</b></h1>
+      <br>
+      <p style="font-size: larger;text-shadow: 2px 2px 5px gold;color: white;" class="container">In this package, experience the untouched beauty and serene landscapes of 
+        Kodaikanal with our all-day Forest Tour. Starting at 10 am, our comfortable cab will take you on an unforgettable journey through some of Kodaikanal’s most scenic spots, 
+        each carefully selected to showcase the natural charm of the region. Highlights include the misty views of Sailent Valley, the panoramic Green Mountain View, and the historic
+         Fire Tower. You’ll also visit the tranquil Medicine Forest View, where the air is filled with the scents of native herbs, and stop at Cap’s Fly Valley, a unique spot famous 
+        for its acoustic marvels. Continuing through the lush greenery, we’ll guide you to Beijam Lake View and the serene Berijam Lake, known for their crystal-clear waters and 
+        vibrant birdlife. Finally, we’ll conclude with a drop-off in the heart of Kodai City by 5 pm. Throughout the journey, our knowledgeable guide will share fascinating 
+        insights, stories, and history about each location, making this a deeply enriching experience. Book this package today and let us take you on a day filled with 
+        nature, discovery, and lasting memories!</p><br>
+    </div>
+
+    <br><br><br>
+    <h1 class="container"><span style="font-size: 60px;color: gold;text-shadow: 0 0 15px silver;">Journey Through These Sites</span></h1>
+    <div class="container mt-3" style=" border-radius: 5px;">
+      <div class="row">
+        <div class="col-sm-4 p-3">
+          <div class="card" style="border: 0px;">
+            <img class="card-img-top" src="foresttour/berijam lake.webp" alt="Card image" style="width:100%; height: 270px">
+            <div class="card-body">
+              <center><h4 class="card-title">Berijam Lake</h4></center>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 p-3 ">
+          <div class="card"  style="border: 0px;">
+            <div class="card-body" >
+              <center><h4 class="card-title">Caps Fly Valley</h4></center>
+             </div>
+            <img class="card-img-bottom" src="foresttour/caps fly.avif" alt="Card image" style="width:100%; height: 270px">
+          </div>
+        </div>
+        <div class="col-sm-4 p-3">
+          <div class="card"  style="border: 0px;">
+            <img class="card-img-top" src="foresttour/fire tour.jpg" alt="Card image" style="width:100%; height: 270px">
+            <div class="card-body">
+              <center><h4 class="card-title">Fire Tower</h4></center>
+            </div>
+          </div>
+        </div>  
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-4 p-3 ">
+          <div class="card"  style="border: 0px;">
+            <div class="card-body" >
+              <center><h4 class="card-title">Green Valley View(sucidpoint)</h4></center>
+             </div>
+            <img class="card-img-bottom" src="localtour/green valley.jpg" alt="Card image" style="width:100%; height: 270px">
+          </div>
+        </div>
+        <div class="col-sm-4 p-3">
+          <div class="card"  style="border: 0px;">
+            <img class="card-img-top" src="foresttour/medicine forest.png" alt="Card image" style="width:100%; height: 270px">
+            <div class="card-body">
+              <center><h4 class="card-title">Medicine Forest</h4></center>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 p-3 ">
+          <div class="card"  style="border: 0px;">
+            <div class="card-body" >
+              <center><h4 class="card-title">Bryant Park</h4></center>
+             </div>
+            <img class="card-img-bottom" src="localtour/bryant parl.jpg" alt="Card image" style="width:100%; height: 270px">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-4 p-3">
+          <div class="card"  style="border: 0px;">
+            <img class="card-img-top" src="localtour/golf course.jpg" alt="Card image" style="width:100%; height: 270px">
+            <div class="card-body">
+              <center><h4 class="card-title">Golf Course</h4></center>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 p-3 ">
+          <div class="card"  style="border: 0px;">
+            <div class="card-body" >
+              <center><h4 class="card-title">Vaigaidam View Point</h4></center>
+             </div>
+            <img class="card-img-bottom" src="localtour/vaigaidam.jpg" alt="Card image" style="width:100%; height: 270px">
+          </div>
+        </div>
+        <div class="col-sm-4 p-3">
+          <div class="card"  style="border: 0px;">
+            <img class="card-img-top" src="localtour/silent vally.jpg" alt="Card image" style="width:100%; height: 270px">
+            <div class="card-body">
+              <center><h4 class="card-title">Silent Valley</h4></center>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
+
+    <br><br><br>
+      <div class="container mt-3" style="background-color: rgba(237, 220, 70, 0.5);border-radius: 15px; z-index: 1; padding: 15px;">
+      <b style=" color: silver;text-shadow: 0 0 3px black;font-size: xx-large;">TERMS & CONDITIONS</b>
+      <p action="" style=" color: gold;text-shadow: 0 0 3px white;text-align: justify; font-size: x-large; margin-left: 10px;">
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> Per person rates (in Rs) - applicable on three persons staying together sharing the same room.<br>
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> Service tax extra as applicable.<br>
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> The package can not be combined with any other offer. <br>
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> If you cancel at least 15 days before the scheduled arrival, you will receive a 90% refund.<br>
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> If you cancel at least 8-14 days before the scheduled arrival, you will receive a 50% refund.<br>
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> If you cancel at least 7 days or less before the scheduled arrival, no refund.</p>
+    <b style=" color: silver;text-shadow: 0 0 3px black;font-size: xx-large;">Package Exclusion</b>
+      <p action="" style=" color: gold;text-shadow: 0 0 3px white;text-align: justify; font-size: x-large;margin-left: 10px;">
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> All sightseeing place entrance fees, Shopping, Lunch and dinner(if hotel is booked)</p>
+      <b style=" color: silver;text-shadow: 0 0 3px black;font-size: xx-large;">Package Inclusion</b>
+      <p action="" style=" color: gold;text-shadow: 0 0 3px white; font-size: x-large;margin-left: 10px;">
+        <span style=" color: silver;text-shadow: 0 0 3px black;">-></span> Cab with guide, Responsible for the luggage while sightseeing, Morning breakfast complimentary (if hotel is booked)
+           </p>
+      </div>
+    <br><br><br>
+
+    <h1 class="container"><span style="font-size: 40px;color: gold;text-shadow: 0 0 15px silver;">Cab Prices for Tour Packages</span></h1>
+    <div class="container mt-3">
+      <div class="table-responsive">
+        <table class="table table-dark table-hover">
+          <thead>
+            <tr>
+              <th class="table-primary"><B>VECHILE</B></th><td>Indica(4)</td><td>Sedan(4)</td><td>Innova(6)</td><td>Shift(3)</td><td>Qualis(7)</td><td>Tavera(8)</td><td>Van(16)</td><td>Mini Bus(25)</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="table-primary"><B>SEASON</B></th><td>3200</td><td>3300</td><td>4300</td><td>3000</td><td>4700</td><td>4900</td><td>11000</td><td>13500</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <th class="table-primary"><B>OFF-SEASON</B></th><td>3000</td><td>3000</td><td>4000</td><td>2800</td><td>4500</td><td>4500</td><td>9000</td><td>12000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <b style="color: red;">(*)Number Of Person Allowed</b>
+    </div>
+    <br><br><br>
+    
+
+    <div class="container mt-3 card-body" style="padding: 5px; border-radius: 5px;">
+      <h1 class="container " style="text-shadow: 1px 1px 2px gold, 0 0 25px gold, 0 0 5px goldenrod;color: black;"><b>Reserve Your Cab Package</b></h1>
+      <form class="container" style=" color: gold;text-shadow: 0 0 3px white;" action="">
+        <div class="mb-3 mt-3">
+          <label for="email"><h4>Enter Bookers Name:</h4></label>
+          <input type="text" class="form-control" id="email" placeholder="Ex: M S DHONI" >
+        </div>
+        <div class="mb-3">
+          <label for="pwd"><h4>Bookers Mobile Number:</h4></label>
+          <input type="text" class="form-control" id="pwd" placeholder="Ex: 7894562132" name="pswd">
+        </div>
+        <div class="mb-3">
+          <label for="pwd"><h4>Bookers E-Mail ID:</h4></label>
+          <input type="email" class="form-control" id="pwd" placeholder="Ex: msdhoni@gmail.com" name="pswd">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="email"><h4>Booking Date</h4></label>
+          <input type="date" class="form-control" id="email" name="email">
+        </div>
+        <div class="mb-3">
+          <label for="pwd"><h4>Total No. of Members:</h4></label><br>
+          <div class="row">
+            <div class="col">
+            <label for="pwd"><h5>Adult</h5></label>
+              <input type="number" class="form-control" placeholder="Ex: 3" name="email">
+            </div>
+            <div class="col">
+            <label for="pwd"><h5>Children</h5></label>
+              <input type="number" class="form-control" placeholder="Ex: 5" name="pswd">
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="sel1" class="form-label"><h4>Select Car:</h4> </label>
+          <select class="form-select" id="sel1" name="sellist1">
+            <option>--/--</option>
+            <option>Indica</option>
+            <option>Sedan</option>
+            <option>Innova</option>
+            <option>Shift</option>
+            <option>Qualis</option>
+            <option>Tavera</option>
+            <option>van</option>
+            <option>Mini Bus</option>
+          </select><br>
+          <input type="number" class="form-control" id="email" name="email" placeholder="Please select the number of cars needed">
+        </div>
+        
+        <button type="submit" class="btn btn-primary" onclick="myFunction()">Submit</button>
+        <BR></BR>
+      </form>
+
+      <div class="container"> 
+        <label class="checkbox-label">
+          <input type="checkbox" id="toggle">
+          <h4 style=" color: gold;text-shadow: 0 0 3px white;">Fill this if you need rooms</h4>
+        </label>
+      
+        <div class="containeSr " id="content" style="background-color: aqua;">
+          <form id="form" style="text-shadow: 1px 1px 2px gold, 0 0 25px gold, 0 0 5px goldenrod;color: black;">
+            <div class="mb-3 mt-3">
+              <label for="email"><h4>Enter Bookers Name:</h4></label>
+              <input type="text" class="form-control" id="email" placeholder="Ex: M S DHONI" >
+            </div>
+            
+            <div class="mb-3 mt-3">
+              <label for="email"><h4>Enter Bookers Aadhaar No.:</h4></label>
+              <input type="text" class="form-control" id="email" placeholder="Ex: 0000 0000 0000" >
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="email"><h4>Enter Bookers E-Mail:</h4></label>
+              <input type="email" class="form-control" id="email" placeholder="Ex: msdhoni@gmail.com" >
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="email"><h4>Enter Bookers Phone No.:</h4></label>
+              <input type="text" class="form-control" id="email" placeholder="Ex: 7894561132" >
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="email"><h4>No. of Rooms needed <span style="font-size: large;">(3person only allowed for a room)</span>:</h4></label>
+              <input type="number" class="form-control" id="email" placeholder="Ex: 2" >
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="sel1" class="form-label"><h4>Location: </h4></label>
+              <select class="form-select" id="sel1" name="sellist1">
+                <option>--/--</option>
+                <option>Near Lake</option>
+                <option>Near Bustand</option>
+                <option>M M Nagar</option>
+                <option>Poombarai</option>
+                <option>Mannavanur</option>
+                <option>Vipatti</option>
+              </select>
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="email"><h4>Booking Date From:</h4></label>
+              <input type="date" class="form-control" id="email" name="email">
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="email"><h4>Booking Date End:</h4></label>
+              <input type="date" class="form-control" id="email" name="email">
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <br>
+      </div>
+    </div>
+
+    <button onclick="topFunction()" id="upBtn" title="Go to top">
+      <i class="fas fa-arrow-up"></i>
+  </button>
+    <br><br><br>
+    <div class="container-fluid navbar" >
+      <nav class="navbar container navbar-expand-sm">
+        <div class="container-fluid">
+          <b style=" font-size: larger; color: white;">Download App</b>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" style="padding-left: 15px;" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a href="https://apps.apple.com/in/app/paytm-secure-upi-payments/id473941634" target="_blank"><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/footer/images/downloadApple.svg" alt=""></a>
+              </li>
+              <li class="nav-item" style="padding-left: 15px;">
+                <a style="text-decoration: none;" href="https://play.google.com/store/apps/details?id=net.one97.paytm&pli=1" target="_blank"><img  src="https://pwebassets.paytm.com/commonwebassets/paytmweb/footer/images/downloadGoogle.svg" alt=""> </a>
+              </li>
+            </ul>
+            
+          <a style="color: white; padding: 15px;" href="https://x.com/paytm" target="_blank"><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/footer/images/twitter.svg" alt=""></a>
+          <a style="color: white; padding: 15px;" href="https://www.instagram.com/paytm/" target="_blank"><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/footer/images/instagram.svg" alt=""></a>
+          <a style="color: white; padding: 15px;padding-right: 25px;" href="https://www.facebook.com/Paytm/" target="_blank"><img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/footer/images/facebook.svg" alt=""></a> 
+          </div>
+        </div>
+      </nav>
+    </div>
+
+      <div style="width: 100%; height: 15px;" class="sl"> </div>
+      <div style="width: 100%; height: 15px;" class="gl"> </div>
+
+
+  </body>
+  <script src="/mine/kodai.js"></script>
+  <script>
+    function myFunction() {
+    alert("Successfully Submitted");
+  }
+
+  // Toggle the visibility of the container based on checkbox state
+  document.getElementById('toggle').addEventListener('change', function() {
+const container = document.getElementById('content');
+if (this.checked) {
+  container.style.display = 'block'; // Show the container when checked
+} else {
+  container.style.display = 'none'; // Hide the container when unchecked
+}
+});
+
+// Handle form submission
+document.getElementById('form').addEventListener('submit', function(event) {
+event.preventDefault(); // Prevent the default form submission behavior
+
+const container = document.getElementById('content');
+
+// Close the container after form submission
+container.style.display = 'none';
+
+// Uncheck the checkbox
+document.getElementById('toggle').checked = false;
+
+// Show success alert
+alert('Successfully submitted!');
+});
+
+
+var mybutton = document.getElementById("upBtn");
+  window.onscroll = function() {scrollFunction()};
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  function topFunction() {
+    document.body.scrollTop = 0; 
+    document.documentElement.scrollTop = 0; 
+  }
+  </script>
+</html>
